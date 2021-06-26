@@ -3,6 +3,8 @@ package com.jayram.pract.soap.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jayram.pract.soap.model.Product;
+
 public class ProductServiceImpl {
 	
 	List<String> bookList = new ArrayList<String>();
@@ -58,5 +60,12 @@ public class ProductServiceImpl {
 			return false;
 		}
 		return true;
+	}
+
+	public List<Product> getProductsv2(String category) {
+		List<Product> productList = new ArrayList<Product>();
+		productList.add(new Product("Python Book", "1234", 400));
+		productList.add(new Product("C Book", "3216", 500));
+		return productList;
 	}
 }
