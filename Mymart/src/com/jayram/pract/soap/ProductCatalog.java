@@ -7,12 +7,12 @@ import javax.jws.WebService;
 
 import com.jayram.pract.soap.service.ProductServiceImpl;
 
-@WebService
+@WebService(name="MyMartCatalog", portName="MyMartCatalogPort", serviceName="MyMartCatalogService", targetNamespace="http://www.testmart.com")
 public class ProductCatalog {
 	
 	ProductServiceImpl productService = new ProductServiceImpl();
 	
-	@WebMethod
+	@WebMethod(action="fetch_categories", operationName="fetchCategories")
 	public List<String> getProductCategories(){
 		return productService.getProductCategories();
 	}
