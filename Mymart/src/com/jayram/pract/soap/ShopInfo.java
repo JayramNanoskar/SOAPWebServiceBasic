@@ -13,13 +13,16 @@ public class ShopInfo {
 	
 	@WebMethod
 	@WebResult(partName="lookupOutput")
-	public String getShopInfo(@WebParam(partName="lookupInput") String property){
-		String response = "Invalid property";
+	public String getShopInfo(@WebParam(partName="lookupInput") String property) throws InvalidInputException{
+		String response = null;
 		if("shopName".equalsIgnoreCase(property)){
 			response = "My Mart";
 		}
 		else if("since".equalsIgnoreCase(property)){
 			response = "since 2021";
+		}
+		else{
+			throw new InvalidInputException("Invalid Input", property+ " is not valid input");
 		}
 		return response;
 	}
